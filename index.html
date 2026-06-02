@@ -5,12 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Fictional Brentwood, NY contractor website demo for home remodeling, carpentry, repairs, painting, flooring, masonry, and concrete services."
+      content="Brentwood Premier Home Improvement offers high-quality home remodeling, custom carpentry, repairs, painting, flooring, and masonry in Brentwood, NY and surrounding areas. Request a free estimate."
     />
-    <title>Brentwood Premier Home Improvement | Fictional Contractor Demo</title>
+    <meta name="keywords" content="home remodeling Brentwood NY, custom carpentry Long Island, handyman repairs Central Islip, local painters Bay Shore, flooring installation Deer Park, masonry concrete Islip" />
+    <title>Brentwood Premier Home Improvement | Home Remodeling & Carpentry Contractor</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://contractor-website-demo-v2.vercel.app/" />
+    <meta property="og:title" content="Brentwood Premier Home Improvement | Local Contractor" />
+    <meta property="og:description" content="Professional home remodeling, carpentry, flooring, and masonry services in Brentwood, NY. Contact us for a free estimate." />
+    <meta property="og:image" content="https://contractor-website-demo-v2.vercel.app/contractor-hero.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://contractor-website-demo-v2.vercel.app/" />
+    <meta property="twitter:title" content="Brentwood Premier Home Improvement | Local Contractor" />
+    <meta property="twitter:description" content="Professional home remodeling, carpentry, flooring, and masonry services in Brentwood, NY. Contact us for a free estimate." />
+    <meta property="twitter:image" content="https://contractor-website-demo-v2.vercel.app/contractor-hero.png" />
+
+    <!-- Preconnect to Google Fonts and CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              soft: '0 18px 45px rgba(20, 20, 20, 0.08)',
+            },
+          },
+        },
+      }
+    </script>
+
+    <!-- Structured Data: Local Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "Brentwood Premier Home Improvement",
+        "image": "https://contractor-website-demo-v2.vercel.app/contractor-hero.png",
+        "telephone": "(631) 555-0198",
+        "email": "estimates@example.com",
+        "url": "https://contractor-website-demo-v2.vercel.app",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brentwood",
+          "addressRegion": "NY",
+          "postalCode": "11717",
+          "addressCountry": "US"
+        },
+        "priceRange": "$$",
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Brentwood"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Central Islip"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Bay Shore"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Deer Park"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Islip"
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-stone-50 font-sans">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

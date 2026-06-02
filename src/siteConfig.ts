@@ -67,7 +67,7 @@ export const siteConfig: SiteConfig = {
   headline: 'Home improvement help for Brentwood and nearby Long Island homes.',
   subheadline:
     'From repairs and painting to remodeling, carpentry, flooring, and masonry, share your project details and we will help with the next step.',
-  heroImage: '/hero-contractor.svg',
+  heroImage: '/contractor-hero.png',
   ctaText: 'Get a Free Estimate',
   secondaryCtaText: 'Call Now',
   seoTitle: 'Brentwood Premier Home Improvement | Brentwood, NY Contractor Demo',
@@ -126,22 +126,22 @@ export const siteConfig: SiteConfig = {
     {
       title: 'Kitchen Refresh',
       description: 'Sample project photo area for cabinets, tile, paint, or finish updates.',
-      imageUrl: '/gallery-kitchen.svg',
+      imageUrl: '/gallery-kitchen.png',
     },
     {
       title: 'Trim Detail',
       description: 'Sample area for carpentry, trim, shelving, or built-in project photos.',
-      imageUrl: '/gallery-carpentry.svg',
+      imageUrl: '/gallery-carpentry.png',
     },
     {
       title: 'Concrete & Masonry',
       description: 'Sample area for walkway, step, patio, or exterior hardscape photos.',
-      imageUrl: '/gallery-masonry.svg',
+      imageUrl: '/gallery-masonry.png',
     },
     {
       title: 'Flooring Install',
       description: 'Sample area for flooring, transitions, trim, and finished room photos.',
-      imageUrl: '/gallery-flooring.svg',
+      imageUrl: '/gallery-flooring.png',
     },
   ],
   // Fictional demo note: these are sample review-style blurbs for layout only.
