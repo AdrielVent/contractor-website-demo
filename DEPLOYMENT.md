@@ -113,3 +113,4 @@ After a real client pays and approves launch:
 - Point DNS to Vercel or the chosen host.
 - Store registrar, hosting, DNS, Pageclip, and analytics credentials in 1Password.
 - Never keep client passwords in code, notes, screenshots, or chat messages.
+Trigger Vercel rebuild
