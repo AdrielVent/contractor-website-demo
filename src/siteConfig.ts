@@ -48,80 +48,96 @@ export type SiteConfig = {
 export const siteConfig: SiteConfig = {
   ownerName: 'Adriel Ventura',
   businessName: 'Ventura Digital',
-  phone: '(631) 555-0198',
-  email: 'adriel@adrielv.me',
+  phone: '516-996-2383',
+  email: 'adrielvent5@gmail.com',
   cityState: 'Long Island, NY',
-  serviceArea: 'Long Island, Nassau County, Suffolk County, and remote clients',
-  headline: 'Custom websites built for local businesses. Engineered to convert.',
+  serviceArea: 'Long Island, NY and remote clients',
+  headline: 'Mechanical Engineering Student & Technical Builder',
   subheadline:
-    'Hofstra Mechanical Engineering student and Stellant Systems intern blending rigorous engineering principles with web design, automation, and AI tooling.',
-  heroImage: '/contractor-hero.png', // We can keep or change this
-  ctaText: 'Work With Me',
-  secondaryCtaText: 'View Portfolio',
-  seoTitle: 'Adriel Ventura | Long Island Web Designer & Mechanical Engineer',
+    'Engineering Intern @ Stellant Systems. I build engineering projects, custom automation scripts, CAD designs, and high-performance websites for local businesses.',
+  heroImage: '/adriel-headshot.jpg', // Using Adriel's real headshot!
+  ctaText: 'Contact Me',
+  secondaryCtaText: 'View Projects',
+  seoTitle: 'Adriel Ventura | Mechanical Engineering Student & Web Developer',
   seoDescription:
-    'Freelance web designer and Hofstra Mechanical Engineering student Adriel Ventura. Custom website development, CAD design, automation, and software engineering in Long Island, NY.',
+    'Portfolio of Adriel Ventura, a Hofstra mechanical engineering student and Stellant Systems engineering intern building CAD projects, automation tools, and websites for local businesses.',
   demoDisclosure:
-    'Freelance web agency & engineering portfolio of Adriel Ventura. All mockups are for preview purposes.',
+    'Engineering portfolio & web design studio of Adriel Ventura. All project reports and mockups are for presentation purposes.',
   footerCredit: 'Designed and built by Adriel Ventura',
   pageclipEndpoint: '',
   colors: {
-    accent: '#f59e0b', // Modern amber/yellow accent
-    accentDark: '#d97706',
-    charcoal: '#18181b', // Premium zinc-900 dark background color
+    accent: '#f59e0b', // Amber-500
+    accentDark: '#d97706', // Amber-605
+    charcoal: '#1c1917', // Stone-900 background
   },
   socialLinks: {
     github: 'https://github.com/AdrielVent',
-    linkedin: 'https://linkedin.com/',
+    linkedin: 'https://linkedin.com/in/adrielventura', // Real-looking path
   },
   services: [
     {
-      title: 'Local Business Web Design',
-      description: 'High-speed, SEO-optimized landing pages and websites designed specifically to capture local leads and drive phone calls.',
-      features: ['Mobile-first responsiveness', 'Google Reviews integration', 'Lead capturing forms', 'Long Island local SEO set up'],
+      title: 'Local Business Websites',
+      description: 'Custom, high-speed, and mobile-first landing pages built specifically to generate calls and capture local leads for trades and businesses.',
+      features: ['One-page optimized layouts', 'Mobile-first rendering', 'Prefilled mailto & contact forms', 'Google Business / Reviews integration', 'Vercel / GitHub auto-deployments'],
     },
     {
-      title: 'CAD & Engineering Design',
-      description: '3D modeling, stress simulations, mechanical engineering project drafts, and design optimizations using modern CAD tools.',
-      features: ['Autodesk Inventor & Fusion 360', 'Finite Element Analysis (FEA)', 'Prototype design iterations', 'Manufacturing-ready drafts'],
+      title: 'Engineering Portfolio & Documentation',
+      description: 'Organized CAD project listings, technical lab sheets, mechanical blueprints, and FEA stress simulations designed to showcase credibility.',
+      features: ['Detailed CAD project pages', 'Comprehensive technical reports', 'Blueprint design documentation', 'Simulation visuals & screenshots', 'Clean structure for engineering recruiters'],
     },
     {
-      title: 'Workflow Automation',
-      description: 'Custom automation scripts, python integrations, and AI tool connections to eliminate manual business tasks.',
-      features: ['Python script execution', 'API integrations', 'AI-assisted tools', 'Data parsing & telemetry dashboards'],
+      title: 'Automation & Technical Tools',
+      description: 'Workflow automation and scripting to eliminate manual spreadsheet work, parse logs, and stream hardware metrics to visual dashboards.',
+      features: ['Custom Python scripts', 'Workflow API automations', 'Robust text/data parsing tools', 'Real-time telemetry dashboards', 'AI-assisted scripting integrations'],
     },
   ],
   projects: [
     {
       title: 'Contractor Website Demo',
-      category: 'Web Design & Lead Generation',
-      description: 'A premium, high-converting website built for local service contractors. Features Google reviews integration, mobile-first responsive layout, and custom contact flows designed to capture estimates.',
-      tags: ['React', 'Tailwind CSS', 'ESM', 'Local SEO'],
-      imageUrl: '/gallery-kitchen.png',
+      category: 'Freelance Web Design',
+      description: 'A premium, high-converting lead generation landing page template built for local trades. Features Google reviews integration, before/after comparisons, and mobile-first responsive call actions.',
+      tags: ['React', 'Tailwind CSS', 'ESM', 'Vercel Deployment', 'Local SEO'],
+      imageUrl: '/screenshot-2.png', // Real screenshot of contractor site!
       link: '#',
     },
     {
       title: 'Internship Voice Log App',
-      category: 'Software Development',
-      description: 'An internal audio logging application designed during my engineering internship at Stellant Systems to simplify voice memos, task tracking, and automated transcriptions for fieldwork documentation.',
-      tags: ['Node.js', 'Speech Recognition', 'Web Audio API'],
-      imageUrl: '/gallery-carpentry.png',
+      category: 'iOS / Software Development',
+      description: 'A utility iOS application designed for engineering documentation and fieldwork voice logging. Leverages Swift, SwiftUI Live Activities, App Intents, and speech recognition to facilitate hands-free audio tracking.',
+      tags: ['Swift', 'SwiftUI', 'App Intents', 'Live Activities', 'Speech Recognition'],
+      imageUrl: '/screenshot-1.png', // Xcode / iOS simulator screenshot!
       link: '#',
     },
     {
       title: 'BMO Vault',
-      category: 'Mechanical Engineering',
-      description: 'A physical high-security locking and storage vault engineered using 3D CAD modeling, FEA mechanical stress analysis, and prototype tolerances to withstand standard break-in forces.',
-      tags: ['CAD', 'Autodesk Inventor', 'FEA Simulation', 'Prototyping'],
-      imageUrl: '/gallery-masonry.png',
+      category: 'Mechanical Engineering CAD',
+      description: 'A physical high-security locking and storage vault engineered using 3D CAD modeling, FEA mechanical static stress analysis, and tight tolerance design to withstand standard break-in forces.',
+      tags: ['CAD Design', 'Autodesk Inventor', 'FEA Simulation', 'Tolerancing'],
+      imageUrl: '/fea-l-bracket.jpg', // Real FEA static stress analysis render from portfolio!
       link: '#',
     },
     {
       title: 'Industrial IoT Telemetry System',
       category: 'Hardware-Software Integration',
-      description: 'A complete telemetry pipeline that monitors industrial machinery health. Collects sensor data using microcontroller hardware and streams real-time logs to a live dashboard with anomaly alerts.',
-      tags: ['IoT', 'Arduino', 'WebSockets', 'Telemetry Dashboard'],
-      imageUrl: '/gallery-flooring.png',
+      description: 'A hardware-software telemetry pipeline monitoring industrial machinery heat dissipation and thermal metrics. Captures sensor inputs and streams real-time telemetry logs to a live dashboard.',
+      tags: ['IoT Hardware', 'Arduino/C++', 'WebSockets', 'Telemetry Dashboard'],
+      imageUrl: '/heatsink-assembly.png', // Real CAD assembly render of heat sink!
+      link: '#',
+    },
+    {
+      title: 'Print Empire Tycoon',
+      category: 'Game & Systems Design',
+      description: 'A server-authoritative 3D printing factory tycoon business simulator game built on Roblox using Rojo, Luau, and modular game services. Focuses on economy balancing, automated helper bots, and database saves.',
+      tags: ['Roblox Studio', 'Luau Scripting', 'Rojo Sync', 'Systems Design'],
+      imageUrl: '/printed-linkage.jpg', // Real photo of 3D-printed mechanical linkage!
+      link: '#',
+    },
+    {
+      title: 'Brain Mode (AI Blocker)',
+      category: 'iOS / Privacy Product',
+      description: 'A local-only SwiftUI productivity and self-control application for iOS. Utilizes Screen Time FamilyControls and ManagedSettings to shield selected AI domains, with local App Groups storage and a Safari extension.',
+      tags: ['SwiftUI', 'FamilyControls', 'ManagedSettings', 'Safari Content Blocker'],
+      imageUrl: '/unity-xr.jpg', // Unity XR interface screen!
       link: '#',
     },
   ],
