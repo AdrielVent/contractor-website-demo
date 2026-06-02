@@ -25,7 +25,7 @@ const appJsx = appSource
   .replace(/import \{[\s\S]*?\} from 'lucide-react';/, (match) => match)
   .replace(
     "import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from 'react';",
-    "import React, { useEffect, useMemo, useState } from 'react';",
+    "import { useEffect, useMemo, useState } from 'react';",
   )
   .replace("import { siteConfig } from './siteConfig';", '')
   .replace('} as CSSProperties;', '};')
