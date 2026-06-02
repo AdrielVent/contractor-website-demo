@@ -114,3 +114,4 @@ After a real client pays and approves launch:
 - Store registrar, hosting, DNS, Pageclip, and analytics credentials in 1Password.
 - Never keep client passwords in code, notes, screenshots, or chat messages.
 Trigger Vercel rebuild
+Force Vercel deploy Mon Jun  1 20:38:18 EDT 2026
