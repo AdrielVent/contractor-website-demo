@@ -447,6 +447,12 @@ function App() {
               <p className="mt-4 text-base text-stone-400">
                 Detailed breakdowns using the STAR method (Situation, Task, Action, Result) for engineering and software verification.
               </p>
+              <div className="mt-6 inline-flex flex-wrap justify-center items-center gap-2 rounded-full bg-amber-500/10 border border-amber-500/20 px-4 py-2 text-xs font-semibold text-amber-500">
+                <span>Looking for my complete mechanical engineering portfolio?</span>
+                <a href="https://engineering.adrielv.me" target="_blank" rel="noopener noreferrer" className="underline font-black hover:text-amber-400 inline-flex items-center gap-1">
+                  Visit engineering.adrielv.me <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
 
             <div className="grid gap-8">
