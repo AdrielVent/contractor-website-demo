@@ -25,7 +25,7 @@ const appJsx = appSource
   .replace(/import \{[\s\S]*?\} from 'lucide-react';/, (match) => match)
   .replace(
     "import { type CSSProperties, type FormEvent, useEffect, useMemo, useState } from 'react';",
-    "import { useEffect, useMemo, useState } from 'react';",
+    "import React, { useEffect, useMemo, useState } from 'react';",
   )
   .replace("import { siteConfig } from './siteConfig';", '')
   .replace('} as CSSProperties;', '};')
@@ -34,7 +34,7 @@ const appJsx = appSource
   .replaceAll('label as string', 'label')
   .replace('export default App;', '');
 
-const mainJsx = `import { StrictMode } from 'react';
+const mainJsx = `import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 ${configJs}
