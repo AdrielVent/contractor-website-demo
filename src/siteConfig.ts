@@ -1,21 +1,20 @@
 export type Service = {
   title: string;
   description: string;
+  features: string[];
 };
 
-export type GalleryItem = {
+export type Project = {
   title: string;
+  category: string;
   description: string;
+  tags: string[];
   imageUrl: string;
-};
-
-export type Testimonial = {
-  name: string;
-  location: string;
-  quote: string;
+  link?: string;
 };
 
 export type SiteConfig = {
+  ownerName: string;
   businessName: string;
   phone: string;
   email: string;
@@ -31,161 +30,99 @@ export type SiteConfig = {
   demoDisclosure: string;
   footerCredit: string;
   pageclipEndpoint: string;
-  simpleAnalytics: {
-    enabled: boolean;
-    hostname?: string;
-  };
   colors: {
     accent: string;
     accentDark: string;
     charcoal: string;
   };
   socialLinks: {
+    github: string;
+    linkedin: string;
     facebook?: string;
     instagram?: string;
-    googleBusiness?: string;
   };
   services: Service[];
-  gallery: GalleryItem[];
-  testimonials: Testimonial[];
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
+  projects: Project[];
 };
 
-// Demo safety note:
-// This is a fictional portfolio demo. Do not publish claims about licensing,
-// insurance, guarantees, years in business, ratings, reviews, response times, or
-// real project photos unless a real client verifies them in writing.
 export const siteConfig: SiteConfig = {
-  businessName: 'Brentwood Premier Home Improvement',
+  ownerName: 'Adriel Ventura',
+  businessName: 'Ventura Digital',
   phone: '(631) 555-0198',
-  email: 'estimates@example.com',
-  cityState: 'Brentwood, NY',
-  serviceArea: 'Brentwood, Central Islip, Bay Shore, Deer Park, Islip, and nearby Long Island areas',
-  headline: 'Home improvement help for Brentwood and nearby Long Island homes.',
+  email: 'adriel@adrielv.me',
+  cityState: 'Long Island, NY',
+  serviceArea: 'Long Island, Nassau County, Suffolk County, and remote clients',
+  headline: 'Custom websites built for local businesses. Engineered to convert.',
   subheadline:
-    'From repairs and painting to remodeling, carpentry, flooring, and masonry, share your project details and we will help with the next step.',
-  heroImage: '/contractor-hero.png',
-  ctaText: 'Get a Free Estimate',
-  secondaryCtaText: 'Call Now',
-  seoTitle: 'Brentwood Premier Home Improvement | Brentwood, NY Contractor Demo',
+    'Hofstra Mechanical Engineering student and Stellant Systems intern blending rigorous engineering principles with web design, automation, and AI tooling.',
+  heroImage: '/contractor-hero.png', // We can keep or change this
+  ctaText: 'Work With Me',
+  secondaryCtaText: 'View Portfolio',
+  seoTitle: 'Adriel Ventura | Long Island Web Designer & Mechanical Engineer',
   seoDescription:
-    'Fictional demo site for Brentwood Premier Home Improvement, featuring home remodeling, carpentry, handyman repairs, painting, flooring, masonry, and concrete services in Brentwood, NY.',
+    'Freelance web designer and Hofstra Mechanical Engineering student Adriel Ventura. Custom website development, CAD design, automation, and software engineering in Long Island, NY.',
   demoDisclosure:
-    'Fictional contractor demo site. Sample content is for portfolio preview only.',
-  footerCredit: 'Website built by Adriel Ventura',
-  // Optional Pageclip setup:
-  // Paste your Pageclip form endpoint here after creating a Pageclip form.
-  // Leave blank to keep the safe mailto fallback.
+    'Freelance web agency & engineering portfolio of Adriel Ventura. All mockups are for preview purposes.',
+  footerCredit: 'Designed and built by Adriel Ventura',
   pageclipEndpoint: '',
-  // Optional SimpleAnalytics setup:
-  // Keep disabled for this fictional demo. Enable only after a real client approves analytics.
-  simpleAnalytics: {
-    enabled: false,
-    hostname: '',
-  },
   colors: {
-    accent: '#d97706',
-    accentDark: '#92400e',
-    charcoal: '#292524',
+    accent: '#f59e0b', // Modern amber/yellow accent
+    accentDark: '#d97706',
+    charcoal: '#18181b', // Premium zinc-900 dark background color
   },
   socialLinks: {
-    facebook: '',
-    instagram: '',
-    googleBusiness: '',
+    github: 'https://github.com/AdrielVent',
+    linkedin: 'https://linkedin.com/',
   },
   services: [
     {
-      title: 'Home Remodeling',
-      description: 'Room updates, layout refreshes, kitchen improvements, bathroom updates, and finish upgrades.',
+      title: 'Local Business Web Design',
+      description: 'High-speed, SEO-optimized landing pages and websites designed specifically to capture local leads and drive phone calls.',
+      features: ['Mobile-first responsiveness', 'Google Reviews integration', 'Lead capturing forms', 'Long Island local SEO set up'],
     },
     {
-      title: 'Custom Carpentry',
-      description: 'Trim, shelving, built-ins, doors, baseboards, deck details, and custom woodwork.',
+      title: 'CAD & Engineering Design',
+      description: '3D modeling, stress simulations, mechanical engineering project drafts, and design optimizations using modern CAD tools.',
+      features: ['Autodesk Inventor & Fusion 360', 'Finite Element Analysis (FEA)', 'Prototype design iterations', 'Manufacturing-ready drafts'],
     },
     {
-      title: 'Handyman Repairs',
-      description: 'Drywall patches, door fixes, hardware installs, small repairs, and punch-list projects.',
-    },
-    {
-      title: 'Painting & Drywall',
-      description: 'Interior painting, drywall repair, wall prep, touch-ups, and clean finish work.',
-    },
-    {
-      title: 'Flooring Installation',
-      description: 'Plank flooring, tile, transitions, trim details, and repair work for worn floors.',
-    },
-    {
-      title: 'Masonry & Concrete',
-      description: 'Walkways, steps, patios, concrete repairs, masonry touch-ups, and exterior hardscape work.',
+      title: 'Workflow Automation',
+      description: 'Custom automation scripts, python integrations, and AI tool connections to eliminate manual business tasks.',
+      features: ['Python script execution', 'API integrations', 'AI-assisted tools', 'Data parsing & telemetry dashboards'],
     },
   ],
-  gallery: [
+  projects: [
     {
-      title: 'Kitchen Refresh',
-      description: 'Sample project photo area for cabinets, tile, paint, or finish updates.',
+      title: 'Contractor Website Demo',
+      category: 'Web Design & Lead Generation',
+      description: 'A premium, high-converting website built for local service contractors. Features Google reviews integration, mobile-first responsive layout, and custom contact flows designed to capture estimates.',
+      tags: ['React', 'Tailwind CSS', 'ESM', 'Local SEO'],
       imageUrl: '/gallery-kitchen.png',
+      link: '#',
     },
     {
-      title: 'Trim Detail',
-      description: 'Sample area for carpentry, trim, shelving, or built-in project photos.',
+      title: 'Internship Voice Log App',
+      category: 'Software Development',
+      description: 'An internal audio logging application designed during my engineering internship at Stellant Systems to simplify voice memos, task tracking, and automated transcriptions for fieldwork documentation.',
+      tags: ['Node.js', 'Speech Recognition', 'Web Audio API'],
       imageUrl: '/gallery-carpentry.png',
+      link: '#',
     },
     {
-      title: 'Concrete & Masonry',
-      description: 'Sample area for walkway, step, patio, or exterior hardscape photos.',
+      title: 'BMO Vault',
+      category: 'Mechanical Engineering',
+      description: 'A physical high-security locking and storage vault engineered using 3D CAD modeling, FEA mechanical stress analysis, and prototype tolerances to withstand standard break-in forces.',
+      tags: ['CAD', 'Autodesk Inventor', 'FEA Simulation', 'Prototyping'],
       imageUrl: '/gallery-masonry.png',
+      link: '#',
     },
     {
-      title: 'Flooring Install',
-      description: 'Sample area for flooring, transitions, trim, and finished room photos.',
+      title: 'Industrial IoT Telemetry System',
+      category: 'Hardware-Software Integration',
+      description: 'A complete telemetry pipeline that monitors industrial machinery health. Collects sensor data using microcontroller hardware and streams real-time logs to a live dashboard with anomaly alerts.',
+      tags: ['IoT', 'Arduino', 'WebSockets', 'Telemetry Dashboard'],
       imageUrl: '/gallery-flooring.png',
-    },
-  ],
-  // Fictional demo note: these are sample review-style blurbs for layout only.
-  // Replace with real, client-approved testimonials before publishing for an actual business.
-  testimonials: [
-    {
-      name: 'Sample Homeowner',
-      location: 'Brentwood, NY',
-      quote:
-        'The estimate process was easy to understand, and the project details were explained clearly.',
-    },
-    {
-      name: 'Sample Homeowner',
-      location: 'Bay Shore, NY',
-      quote:
-        'The site makes it simple to see the services offered and request help with a home project.',
-    },
-    {
-      name: 'Sample Homeowner',
-      location: 'Central Islip, NY',
-      quote:
-        'The service list and estimate form make it easy to ask about the right project category.',
-    },
-  ],
-  faqs: [
-    {
-      question: 'Do you offer free estimates?',
-      answer:
-        'Use the form or call to share a few project details and ask about estimate availability.',
-    },
-    {
-      question: 'What areas do you serve?',
-      answer:
-        'This demo is written for Brentwood, Central Islip, Bay Shore, Deer Park, Islip, and nearby Long Island areas.',
-    },
-    {
-      question: 'What types of projects do you take on?',
-      answer:
-        'Services shown here include home remodeling, custom carpentry, handyman repairs, painting and drywall, flooring installation, and masonry or concrete work.',
-    },
-    {
-      question: 'How quickly do you respond?',
-      answer:
-        'Response times depend on the schedule, project type, and details provided in the estimate request.',
+      link: '#',
     },
   ],
 };
