@@ -11,6 +11,13 @@ export type Project = {
   tags: string[];
   imageUrl: string;
   link?: string;
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+  tools: string[];
+  skills: string[];
+  challenge: string;
 };
 
 export type SiteConfig = {
@@ -55,7 +62,7 @@ export const siteConfig: SiteConfig = {
   headline: 'Mechanical Engineering Student & Technical Builder',
   subheadline:
     'Engineering Intern @ Stellant Systems. I build engineering projects, custom automation scripts, CAD designs, and high-performance websites for local businesses.',
-  heroImage: '/adriel-headshot.jpg', // Using Adriel's real headshot!
+  heroImage: '/adriel-headshot.jpg', // Real portrait headshot
   ctaText: 'Contact Me',
   secondaryCtaText: 'View Projects',
   seoTitle: 'Adriel Ventura | Mechanical Engineering Student & Web Developer',
@@ -67,12 +74,12 @@ export const siteConfig: SiteConfig = {
   pageclipEndpoint: '',
   colors: {
     accent: '#f59e0b', // Amber-500
-    accentDark: '#d97706', // Amber-605
+    accentDark: '#d97706', // Amber-600
     charcoal: '#1c1917', // Stone-900 background
   },
   socialLinks: {
     github: 'https://github.com/AdrielVent',
-    linkedin: 'https://linkedin.com/in/adrielventura', // Real-looking path
+    linkedin: 'https://linkedin.com/in/adrielventura',
   },
   services: [
     {
@@ -93,52 +100,88 @@ export const siteConfig: SiteConfig = {
   ],
   projects: [
     {
-      title: 'Contractor Website Demo',
-      category: 'Freelance Web Design',
-      description: 'A premium, high-converting lead generation landing page template built for local trades. Features Google reviews integration, before/after comparisons, and mobile-first responsive call actions.',
-      tags: ['React', 'Tailwind CSS', 'ESM', 'Vercel Deployment', 'Local SEO'],
-      imageUrl: '/screenshot-2.png', // Real screenshot of contractor site!
-      link: '#',
+      title: 'CPU Heat Sink Thermal Design',
+      category: 'Thermal Design / DFMA',
+      description: 'Forced-convection heat sink developed for a CPU chip with a 100 W steady-state heat load, predicting thermal resistances and fin heights using analytical models and FEA simulation studies.',
+      tags: ['Thermal Design', 'MATLAB', 'Fusion 360', 'DFMA', 'FEA'],
+      imageUrl: '/heatsink-assembly.png',
+      situation: 'Desktop CPU cooling design project with a 100 W steady-state heat load and 25°C ambient air.',
+      task: 'Develop a compact forced-convection heat sink that satisfies the chip temperature limit of ≤85°C and evaluates an internal derated target of ≤70°C.',
+      action: 'Programmed a MATLAB resistance/mass solver trade study to identify optimum fin pitch, modeled geometry options in SolidWorks, and simulated thermal conduction using Fusion 360 thermal FEA.',
+      result: 'Selected a 15-fin Al-6061 plate-fin design predicted at 69.85°C in MATLAB and 69.775°C in Fusion 360, balancing thermal performance with machining space requirements.',
+      tools: ['MATLAB', 'Fusion 360 Thermal FEA', 'SolidWorks', 'Excel'],
+      skills: ['Thermal Conduction Analysis', 'Design for Manufacturing (DFMA)', 'Numerical Modeling', 'BOM Planning'],
+      challenge: 'Balanced ideal thermal optimization (which favored 17 fins) with tool clearances for fabrication. Reducing to 15 fins lowered mass to 54.6g while keeping temperature below the 70°C target.',
+    },
+    {
+      title: 'FEA Structural Optimization Study',
+      category: 'FEA / Structural Analysis',
+      description: 'Structural optimization of a load-bearing C-frame mounting arm under extreme static loads, applying boundary conditions and geometric iterations to achieve a high factor of safety and material volume reduction.',
+      tags: ['Static FEA', 'SolidWorks Simulation', 'Mesh Convergence', 'ASME Y14.5'],
+      imageUrl: '/fea-c-frame.jpg',
+      situation: 'A load-bearing C-frame mounting arm experiences structural force loads up to 45,000 N.',
+      task: 'Analyze static stress and displacement, optimizing the frame for weight reduction while maintaining a safety factor of ≥1.4 under stress limits.',
+      action: 'Created solid models, defined custom boundary constraints and fixed geometry fixtures, and executed static structural FEA mesh simulations in SolidWorks.',
+      result: 'Redesigned geometry to achieve a 15% reduction in material volume while maintaining a safety factor of 1.41 and keeping displacement to 1.6 mm.',
+      tools: ['SOLIDWORKS Simulation', 'FEA Solvers', 'ASME Y14.5'],
+      skills: ['Finite Element Analysis', 'Structural Optimization', 'Geometric Dimensioning & Tolerancing', 'Stress Analysis'],
+      challenge: 'Localized stress concentration at inside corners threatened the safety margins. Resolved this by introducing Conic Rho fillets to distribute loading without increasing overall bulk weight.',
+    },
+    {
+      title: 'GD&T / Drawing Packages',
+      category: 'ASME Y14.5 GD&T / Drafting',
+      description: 'Production-ready engineering drawing packages for multiple mechanical parts, applying ASME Y14.5 Geometric Dimensioning and Tolerancing standards to communicate manufacturing intent.',
+      tags: ['GD&T', 'ASME Y14.5', 'Drafting', 'SolidWorks Drawings'],
+      imageUrl: '/gdt-drawing.jpg',
+      situation: 'Multiple mechanical parts including a shaft collar and mounting plates require manufacturing documentation.',
+      task: 'Create detailed drawing sheets that define form, orientation, profile, and location tolerances for production.',
+      action: 'Generated orthogonal views, details, and sections in SolidWorks, defining datums and applying feature control frames using ASME Y14.5 standards.',
+      result: 'Delivered complete drawing packages with clean tolerance specifications, ensuring correct assembly fits.',
+      tools: ['SOLIDWORKS Drawings', 'ASME Y14.5-2009 Standards', 'Tolerance Calc Sheets'],
+      skills: ['Engineering Drafting', 'Geometric Dimensioning & Tolerancing', 'Tolerance Stack-up Analysis', 'Fit Classes'],
+      challenge: 'Critical mating interfaces on the shaft collar required high concentricity. Resolved this by specifying runout tolerances relative to main datums to prevent binding during rotation.',
     },
     {
       title: 'Internship Voice Log App',
       category: 'iOS / Software Development',
-      description: 'A utility iOS application designed for engineering documentation and fieldwork voice logging. Leverages Swift, SwiftUI Live Activities, App Intents, and speech recognition to facilitate hands-free audio tracking.',
-      tags: ['Swift', 'SwiftUI', 'App Intents', 'Live Activities', 'Speech Recognition'],
-      imageUrl: '/screenshot-1.png', // Xcode / iOS simulator screenshot!
-      link: '#',
+      description: 'An internal mobile audio logging application designed to simplify task logging, voice notes, and Siri Shortcuts actions for technicians during fieldwork.',
+      tags: ['Swift', 'SwiftUI', 'App Intents', 'Live Activities', 'ActivityKit'],
+      imageUrl: '/screenshot-1.png',
+      situation: 'Engineering technicians in high-noise environments require quick hands-free logging of checklist documentation.',
+      task: 'Develop a lightweight iOS application allowing technicians to record, pause, and log voice memos offline with quick Siri integration.',
+      action: 'Programmed a Swift/SwiftUI interface, integrated ActivityKit for lock-screen Live Activities, and built AppIntents for Siri App Shortcuts.',
+      result: 'Delivered a functional app that tracks active logs and handles lock-screen background recording states.',
+      tools: ['Xcode', 'Swift', 'SwiftUI', 'Simulator'],
+      skills: ['iOS Application Development', 'Background Audio APIs', 'App Intents Framework', 'State Management'],
+      challenge: 'iOS lifecycle events frequently paused background recording when the screen locked. Handled interruptions and audio sessions with specialized AVAudioSession configurations.',
     },
     {
-      title: 'BMO Vault',
-      category: 'Mechanical Engineering CAD',
-      description: 'A physical high-security locking and storage vault engineered using 3D CAD modeling, FEA mechanical static stress analysis, and tight tolerance design to withstand standard break-in forces.',
-      tags: ['CAD Design', 'Autodesk Inventor', 'FEA Simulation', 'Tolerancing'],
-      imageUrl: '/fea-l-bracket.jpg', // Real FEA static stress analysis render from portfolio!
-      link: '#',
+      title: 'Contractor Website Demo',
+      category: 'Freelance Web Design',
+      description: 'A mobile-first, high-converting freelance landing page template designed for contractor lead generation, featuring prefilled inquiries and reviews.',
+      tags: ['React', 'Tailwind CSS', 'ESM importmaps', 'SEO Optimization'],
+      imageUrl: '/screenshot-2.png',
+      situation: 'Local home improvement contractors require an optimized web landing page to capture local customer estimates.',
+      task: 'Create a fast, responsive landing page featuring Google review cards, before/after showcase grids, and tap-to-call mobile CTAs.',
+      action: 'Coded semantic HTML5 layouts, implemented responsive grids using Tailwind utility classes, and optimized image assets to maximize Lighthouse scores.',
+      result: 'Completed a lead-generation template that renders in under 1 second, resulting in a ready-to-use business site.',
+      tools: ['React', 'Tailwind CSS', 'Puppeteer', 'Vite/ESM'],
+      skills: ['Frontend Development', 'Conversion Rate Optimization (CRO)', 'Mobile UI Layouts', 'SEO Integration'],
+      challenge: 'Heavy javascript dependencies slowed down page load times. Resolved by utilizing ESM importmaps to fetch React and Icons from CDNs, bypassing local bundlers.',
     },
     {
-      title: 'Industrial IoT Telemetry System',
-      category: 'Hardware-Software Integration',
-      description: 'A hardware-software telemetry pipeline monitoring industrial machinery heat dissipation and thermal metrics. Captures sensor inputs and streams real-time telemetry logs to a live dashboard.',
-      tags: ['IoT Hardware', 'Arduino/C++', 'WebSockets', 'Telemetry Dashboard'],
-      imageUrl: '/heatsink-assembly.png', // Real CAD assembly render of heat sink!
-      link: '#',
-    },
-    {
-      title: 'Print Empire Tycoon',
-      category: 'Game & Systems Design',
-      description: 'A server-authoritative 3D printing factory tycoon business simulator game built on Roblox using Rojo, Luau, and modular game services. Focuses on economy balancing, automated helper bots, and database saves.',
+      title: 'Print Empire Tycoon Roblox Game',
+      category: 'Game / Systems Design',
+      description: 'A Rojo-compatible Luau MVP simulation game modeling a 3D printing factory, featuring server-authoritative logic, upgrade terminals, and automated helper bots.',
       tags: ['Roblox Studio', 'Luau Scripting', 'Rojo Sync', 'Systems Design'],
-      imageUrl: '/printed-linkage.jpg', // Real photo of 3D-printed mechanical linkage!
-      link: '#',
-    },
-    {
-      title: 'Brain Mode (AI Blocker)',
-      category: 'iOS / Privacy Product',
-      description: 'A local-only SwiftUI productivity and self-control application for iOS. Utilizes Screen Time FamilyControls and ManagedSettings to shield selected AI domains, with local App Groups storage and a Safari extension.',
-      tags: ['SwiftUI', 'FamilyControls', 'ManagedSettings', 'Safari Content Blocker'],
-      imageUrl: '/unity-xr.jpg', // Unity XR interface screen!
-      link: '#',
+      imageUrl: '/printed-linkage.jpg',
+      situation: 'Roblox simulation game loops require robust, server-authoritative code logic to prevent exploits and local memory manipulation.',
+      task: 'Design cash transactions, printer timers, upgrades, layout saving, and automation loops using a Luau framework.',
+      action: 'Structured services inside ServerScriptService, synced files using Rojo, and bound session saves to DataStore systems.',
+      result: 'Built a playable tycoon simulator loop allowing players to buy printers, complete contracts, and automate workflows.',
+      tools: ['Roblox Studio', 'Luau', 'Rojo', 'DataStore Services'],
+      skills: ['Systems Design', 'Economy Balancing', 'Client-Server Network Replication', 'Game Logic scripting'],
+      challenge: 'Massive remote network replication events occurred during layout saves, causing local lag. Optimized by batching player state updates and synchronizing tickers only on state change.',
     },
   ],
 };

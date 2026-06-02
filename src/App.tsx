@@ -107,7 +107,7 @@ function App() {
           </div>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-stone-850 text-stone-400 md:hidden hover:bg-stone-900"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-stone-855 text-stone-400 md:hidden hover:bg-stone-900"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((value) => !value)}
@@ -232,9 +232,9 @@ function App() {
               const icons = [Code, Settings, Cpu];
               const ServiceIcon = icons[index % icons.length];
               return (
-                <article key={service.title} className="flex flex-col justify-between rounded-2xl border border-stone-900 bg-stone-900/20 p-6 shadow-sm hover:shadow-soft hover:border-stone-850 hover:-translate-y-1 transition-all duration-300">
+                <article key={service.title} className="flex flex-col justify-between rounded-2xl border border-stone-900 bg-stone-900/20 p-6 shadow-sm hover:shadow-soft hover:border-stone-855 hover:-translate-y-1 transition-all duration-300">
                   <div>
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-stone-950 border border-stone-900 text-amber-500">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-stone-955 border border-stone-900 text-amber-500">
                       <ServiceIcon size={24} aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-extrabold text-white">{service.title}</h3>
@@ -262,7 +262,7 @@ function App() {
           </div>
         </section>
 
-        {/* Portfolio Section (Masonry Grid with Real Visual Evidence) */}
+        {/* Portfolio Section (Visual Showcase) */}
         <section id="portfolio" className="section-anchor bg-stone-900/20 py-16 sm:py-24 border-y border-stone-900">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -289,7 +289,7 @@ function App() {
                 return (
                   <article
                     key={project.title}
-                    className={`overflow-hidden rounded-2xl border border-stone-900 bg-stone-950/40 shadow-sm hover:border-stone-850 group transition duration-300 ${
+                    className={`overflow-hidden rounded-2xl border border-stone-900 bg-stone-955 shadow-sm hover:border-stone-850 group transition duration-300 ${
                       isLarge ? 'md:col-span-2' : ''
                     }`}
                   >
@@ -332,7 +332,7 @@ function App() {
           </div>
         </section>
 
-        {/* About Me Section (Natural and Honest Profile) */}
+        {/* About Me Section */}
         <section id="about" className="section-anchor mx-auto max-w-6xl px-4 py-16 sm:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="flex flex-col justify-between">
@@ -353,7 +353,7 @@ function App() {
               {/* Milestones / Education / Internships details */}
               <div className="mt-8 space-y-4">
                 <div className="flex gap-4 rounded-xl border border-stone-900 bg-stone-900/10 p-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-950 border border-stone-900 text-amber-500">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-950 border border-stone-905 text-amber-500">
                     <GraduationCap size={20} />
                   </div>
                   <div>
@@ -364,7 +364,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 rounded-xl border border-stone-900 bg-stone-900/10 p-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-950 border border-stone-900 text-amber-500">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-stone-955 border border-stone-900 text-amber-500">
                     <Briefcase size={20} />
                   </div>
                   <div>
@@ -438,14 +438,14 @@ function App() {
           </div>
         </section>
 
-        {/* Detailed Projects Case Studies */}
+        {/* Detailed Projects Section (STAR Method Rendered for Recruiters) */}
         <section id="projects" className="section-anchor bg-stone-900/20 py-16 sm:py-24 border-y border-stone-900">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <p className="text-sm font-bold uppercase tracking-wider text-amber-500">Case Studies</p>
               <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Engineering & Software Project Logs</h2>
               <p className="mt-4 text-base text-stone-400">
-                A detailed listing of mechanical calculations, software structures, and hardware telemetry pipelines.
+                Detailed breakdowns using the STAR method (Situation, Task, Action, Result) for engineering and software verification.
               </p>
             </div>
 
@@ -453,7 +453,7 @@ function App() {
               {siteConfig.projects.map((project, index) => {
                 const isEven = index % 2 === 0;
                 return (
-                  <article key={project.title} className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center rounded-2xl border border-stone-900 bg-stone-950/20 p-6 sm:p-8 hover:border-stone-850 transition duration-300">
+                  <article key={project.title} className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] items-start rounded-2xl border border-stone-900 bg-stone-950/20 p-6 sm:p-8 hover:border-stone-850 transition duration-300">
                     <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
                       <span className="rounded bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 text-[10px] font-bold text-amber-500 uppercase tracking-wider">
                         {project.category}
@@ -462,14 +462,50 @@ function App() {
                       <p className="mt-4 text-sm leading-relaxed text-stone-400">
                         {project.description}
                       </p>
-                      
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="rounded-md bg-stone-950 border border-stone-900 px-2.5 py-1 text-xs text-stone-300">
-                            {tag}
+
+                      {/* Tools & Skills Tags */}
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {project.tools.map((tool) => (
+                          <span key={tool} className="rounded-md bg-stone-900 border border-stone-850 px-2 py-0.5 text-[10px] font-semibold text-amber-500">
+                            🛠️ {tool}
+                          </span>
+                        ))}
+                        {project.skills.map((skill) => (
+                          <span key={skill} className="rounded-md bg-stone-900 border border-stone-850 px-2 py-0.5 text-[10px] font-semibold text-stone-400">
+                            ⚙️ {skill}
                           </span>
                         ))}
                       </div>
+
+                      {/* STAR Technical Dossier (Collapsible for recruiters!) */}
+                      <details className="group border border-stone-850 bg-stone-950/60 rounded-xl p-4 mt-6">
+                        <summary className="cursor-pointer font-bold text-xs text-amber-500 uppercase tracking-widest select-none flex items-center justify-between">
+                          <span>Read Technical STAR Dossier</span>
+                          <span className="text-stone-500 transition group-open:rotate-45">+</span>
+                        </summary>
+                        <div className="mt-4 space-y-3.5 text-xs text-stone-400 border-t border-stone-900/60 pt-4">
+                          <div>
+                            <strong className="text-stone-300 uppercase tracking-wider block mb-1">Situation:</strong>
+                            <p>{project.situation}</p>
+                          </div>
+                          <div>
+                            <strong className="text-stone-300 uppercase tracking-wider block mb-1">Task:</strong>
+                            <p>{project.task}</p>
+                          </div>
+                          <div>
+                            <strong className="text-stone-300 uppercase tracking-wider block mb-1">Action:</strong>
+                            <p>{project.action}</p>
+                          </div>
+                          <div>
+                            <strong className="text-stone-300 uppercase tracking-wider block mb-1">Result:</strong>
+                            <p>{project.result}</p>
+                          </div>
+                          <div className="rounded-lg bg-amber-500/5 border border-amber-500/10 p-3 mt-2">
+                            <strong className="text-amber-500 uppercase tracking-wider block mb-1">Technical Challenge Solved:</strong>
+                            <p className="text-stone-300 leading-relaxed">{project.challenge}</p>
+                          </div>
+                        </div>
+                      </details>
 
                       <div className="mt-6">
                         <a
@@ -482,10 +518,10 @@ function App() {
                       </div>
                     </div>
 
-                    <div className={`overflow-hidden rounded-xl border border-stone-905 aspect-[16/10] bg-stone-950 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className={`overflow-hidden rounded-xl border border-stone-900 aspect-[16/10] bg-stone-950 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <img
                         src={project.imageUrl}
-                        alt={`${project.title} detailed visual render`}
+                        alt={`${project.title} screenshot`}
                         loading="lazy"
                         className="h-full w-full object-cover"
                       />
@@ -504,7 +540,7 @@ function App() {
               <p className="text-sm font-bold uppercase tracking-wider text-amber-500">Contact</p>
               <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Discuss a Lead-Gen Site or Engineering Contract</h2>
               <p className="mt-4 leading-relaxed text-stone-400">
-                Recruiting for engineering positions or looking to upgrade your local business landing page? Submit your details below to open a prefilled email drafts.
+                Recruiting for engineering positions or looking to upgrade your local business landing page? Submit your details below to open a prefilled email draft.
               </p>
               
               <div className="mt-8 grid gap-4">
@@ -585,7 +621,7 @@ function App() {
                     <option value="Local Web Design" className="bg-stone-950">Local Business Websites</option>
                     <option value="Engineering Documentation" className="bg-stone-950">Engineering Documentation Portfolio</option>
                     <option value="Workflow Automation" className="bg-stone-950">Workflow Script Automation</option>
-                    <option value="Recruitment Inquiry" className="bg-stone-950">Recruiter Inquiry</option>
+                    <option value="Recruiter Inquiry" className="bg-stone-950">Recruiter Inquiry</option>
                     <option value="Other" className="bg-stone-950">Other technical project</option>
                   </select>
                 </div>
@@ -605,7 +641,7 @@ function App() {
                 type="submit"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-4 font-bold text-black shadow-lg hover:bg-amber-600 transition"
               >
-                Draft Email Inquire
+                Draft Email Inquiry
                 <ArrowRight size={18} aria-hidden="true" />
               </button>
               
@@ -620,7 +656,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-stone-950 border-t border-stone-900 text-stone-400">
+      <footer className="bg-stone-955 border-t border-stone-900 text-stone-400">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[1.3fr_0.8fr_0.9fr] lg:px-8">
           <div>
             <div className="flex items-center gap-3.5">
@@ -669,7 +705,7 @@ function App() {
                   </a>
                 )}
                 {hasUrl(siteConfig.socialLinks.linkedin) && (
-                  <a href={siteConfig.socialLinks.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-stone-850 p-2 hover:text-white transition bg-stone-900/40">
+                  <a href={siteConfig.socialLinks.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-stone-855 p-2 hover:text-white transition bg-stone-900/40">
                     <Facebook size={17} aria-hidden="true" />
                   </a>
                 )}
