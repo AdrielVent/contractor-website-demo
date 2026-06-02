@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Fictional home improvement demo image">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="55%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e7e5e4"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" x2="1">
+      <stop offset="0%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect y="630" width="1200" height="270" fill="#d6d3d1"/>
+  <path d="M0 682c164-72 309-88 436-48 106 34 209 35 309 4 154-48 293-28 455 46v216H0z" fill="#a8a29e"/>
+  <rect x="168" y="270" width="720" height="400" rx="28" fill="#ffffff"/>
+  <path d="M128 306 530 120l404 186H128z" fill="#292524"/>
+  <path d="M212 332 530 190l316 142H212z" fill="url(#wood)"/>
+  <rect x="248" y="390" width="164" height="210" rx="12" fill="#fef3c7"/>
+  <rect x="478" y="390" width="128" height="280" rx="12" fill="#7c2d12"/>
+  <rect x="672" y="390" width="164" height="210" rx="12" fill="#fef3c7"/>
+  <rect x="280" y="424" width="100" height="142" rx="8" fill="#ffffff"/>
+  <rect x="704" y="424" width="100" height="142" rx="8" fill="#ffffff"/>
+  <circle cx="582" cy="532" r="12" fill="#d97706"/>
+  <rect x="124" y="660" width="828" height="44" rx="22" fill="#292524"/>
+  <rect x="920" y="468" width="178" height="34" rx="17" fill="#d97706"/>
+  <rect x="950" y="520" width="118" height="26" rx="13" fill="#92400e"/>
+  <circle cx="968" cy="610" r="58" fill="#f59e0b"/>
+  <path d="M948 610h40M968 590v40" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+</svg>

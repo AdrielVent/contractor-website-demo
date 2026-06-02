@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Fictional carpentry demo image">
+  <rect width="900" height="675" fill="#efe7dc"/>
+  <rect x="78" y="86" width="744" height="430" rx="20" fill="#ffffff"/>
+  <rect x="142" y="128" width="616" height="332" rx="12" fill="#7c4a1f"/>
+  <rect x="184" y="168" width="138" height="252" rx="8" fill="#fef3c7"/>
+  <rect x="382" y="168" width="138" height="252" rx="8" fill="#fef3c7"/>
+  <rect x="580" y="168" width="138" height="252" rx="8" fill="#fef3c7"/>
+  <rect x="142" y="298" width="616" height="28" fill="#a16207"/>
+  <rect x="142" y="448" width="616" height="40" rx="6" fill="#292524"/>
+  <path d="M125 560h650" stroke="#d97706" stroke-width="12" stroke-linecap="round"/>
+  <text x="112" y="594" fill="#292524" font-family="Arial, sans-serif" font-size="38" font-weight="700">Demo Project: Trim & Carpentry</text>
+  <text x="112" y="636" fill="#57534e" font-family="Arial, sans-serif" font-size="24">Use real work photos after client approval.</text>
+</svg>
