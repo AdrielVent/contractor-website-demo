@@ -123,6 +123,11 @@
       .check > div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid #ebe7df; }
       .check dt { color: #5c5851; font-size: 13px; padding-top: 1px; }
 
+      .notes { list-style: decimal; padding-left: 1.25rem; }
+      .notes li + li { margin-top: 6px; }
+      @media (min-width: 1024px) { .notes li + li { margin-top: 0; } }
+      .notes .text-link { color: #5c5851; }
+
       .dw-label, .dw-label-strong, .dw-dim, .dw-dim-strong { font-family: "IBM Plex Mono", ui-monospace, monospace; }
       .dw-label { font-size: 10px; }
       .dw-label-strong { font-size: 12px; font-weight: 500; }

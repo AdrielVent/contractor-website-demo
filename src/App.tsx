@@ -237,6 +237,28 @@ function App() {
                   </dl>
                 </section>
               </div>
+
+              {/* Sources: verified public pages from the founder's research reference list. No projections or private data.
+                  Sits under the drawing (columns 1–8) on desktop; last on mobile. */}
+              <section aria-labelledby="notes-title" className="mt-6 border-t border-rule pt-4 sm:max-w-xl lg:col-span-8 lg:mt-2 lg:max-w-none">
+                  <h2 id="notes-title" className="mono text-[13px] font-normal text-muted">Notes</h2>
+                  <ol className="notes mt-2 text-[13px] leading-relaxed text-muted lg:grid lg:grid-cols-2 lg:gap-x-8">
+                    <li>
+                      Balloon numbers such as #07 tie a drawing characteristic to its inspection record, as in AS9102
+                      first-article reports.{' '}
+                      <a href="https://lastrev.com/workflows/fai-report-generation" className="text-link" target="_blank" rel="noopener noreferrer">
+                        Last Rev, “FAI Report Generation (AS9102)”<span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </li>
+                    <li>
+                      Dimensions and tolerances follow ASME Y14.5, the U.S. standard for dimensioning and tolerancing on
+                      engineering drawings.{' '}
+                      <a href="https://www.asme.org/codes-standards/find-codes-standards/y14-5-dimensioning-tolerancing" className="text-link" target="_blank" rel="noopener noreferrer">
+                        ASME Y14.5-2018 (R2024)<span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </li>
+                  </ol>
+              </section>
             </figure>
           </div>
         </section>
