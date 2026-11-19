@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Freelance web designer and Hofstra Mechanical Engineering student Adriel Ventura. Custom website development, CAD systems design, and workflow automation in Long Island, NY."
+      content="VNUA Industries is a founder-led engineering software company. Its first product, DatumPane, is in development: a tool for machine shops to see what changed between drawing revisions and what to inspect."
     />
-    <meta name="keywords" content="Long Island web design, freelance web developer NY, Hofstra mechanical engineering, CAD design services, Stellant Systems intern, Adriel Ventura portfolio, custom software automation" />
-    <title>Adriel Ventura | Mechanical Engineering Student & Web Developer</title>
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="theme-color" content="#1d1f21" />
+    <title>VNUA Industries | DatumPane, drawing revisions to inspection checklists</title>
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://adrielv.me/" />
-    <meta property="og:title" content="Adriel Ventura | Long Island Web Designer & Engineer" />
-    <meta property="og:description" content="Custom website development, mechanical CAD design, and software automation by Adriel Ventura." />
-    <meta property="og:image" content="https://adrielv.me/contractor-hero.png" />
+    <meta property="og:site_name" content="VNUA Industries" />
+    <meta property="og:title" content="DatumPane by VNUA Industries" />
+    <meta property="og:description" content="See what changed. Know what to inspect. A tool in development for machine shops." />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:card" content="summary" />
     <meta property="twitter:url" content="https://adrielv.me/" />
-    <meta property="twitter:title" content="Adriel Ventura | Long Island Web Designer & Engineer" />
-    <meta property="twitter:description" content="Custom website development, mechanical CAD design, and software automation by Adriel Ventura." />
-    <meta property="twitter:image" content="https://adrielv.me/contractor-hero.png" />
+    <meta property="twitter:title" content="DatumPane by VNUA Industries" />
+    <meta property="twitter:description" content="See what changed. Know what to inspect. A tool in development for machine shops." />
 
-    <!-- Preconnect to Google Fonts and CDN -->
+    <!-- Fonts: one sans family, monospace only for revision IDs, labels and dimensions -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,51 +34,106 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
             },
-            boxShadow: {
-              soft: '0 18px 45px rgba(20, 20, 20, 0.08)',
+            colors: {
+              graphite: { DEFAULT: '#1d1f21', line: '#383c40' },
+              chalk: '#f3f1ec',
+              fog: '#b9b4ab',
+              paper: '#f6f3ee',
+              sheet: '#fbfaf7',
+              ink: '#1f1e1c',
+              muted: '#5c5851',
+              rule: '#ddd8cf',
+              copper: { DEFAULT: '#8f5230', light: '#d29a6d' },
             },
           },
         },
       }
     </script>
 
-    <!-- Structured Data: Local Business Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Ventura Digital",
-        "image": "https://adrielv.me/contractor-hero.png",
-        "telephone": "516-996-2383",
-        "email": "adrielvent5@gmail.com",
+        "@type": "Organization",
+        "name": "VNUA Industries",
         "url": "https://adrielv.me/",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Long Island",
-          "addressRegion": "NY",
-          "addressCountry": "US"
-        },
-        "priceRange": "$$",
-        "areaServed": [
-          {
-            "@type": "AdministrativeArea",
-            "name": "Long Island"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Nassau County"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Suffolk County"
-          }
-        ]
+        "founder": { "@type": "Person", "name": "Adriel Ventura" }
       }
     </script>
+
+    <style>
+      body { background: #f6f3ee; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+      /* One editorial grid for hero, exhibit, About and Contact: 12 columns, 32px gutters from 1024px */
+      .grid-12 { display: grid; grid-template-columns: minmax(0, 1fr); }
+      @media (min-width: 1024px) { .grid-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 32px; } }
+
+      /* Focus: ink on warm white, chalk on graphite. Copper is reserved for change #07. */
+      a:focus-visible, button:focus-visible { outline: 2px solid #1f1e1c; outline-offset: 3px; border-radius: 1px; }
+      .on-dark a:focus-visible { outline-color: #f3f1ec; }
+      .on-dark .sheet a:focus-visible { outline-color: #1f1e1c; }
+
+      .skip-link { position: absolute; left: 16px; top: -48px; z-index: 50; background: #f3f1ec; color: #1f1e1c; padding: 8px 12px; font-size: 14px; }
+      .skip-link:focus { top: 12px; }
+
+      .nav-link { color: #b9b4ab; text-decoration: none; padding: 4px 0; }
+      .nav-link:hover { color: #f3f1ec; }
+
+      .btn { display: inline-flex; align-items: center; font-size: 15px; font-weight: 500; padding: 10px 18px; border-radius: 2px; text-decoration: none; border: 1px solid transparent; transition: background-color .15s, border-color .15s, color .15s; }
+      .btn-primary { background: #f3f1ec; color: #1d1f21; }
+      .btn-primary:hover { background: #ffffff; }
+      .btn-dark { background: #1d1f21; color: #f3f1ec; }
+      .btn-dark:hover { background: #34383c; }
+
+      .text-link { color: #1f1e1c; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      .text-link:hover { text-decoration-thickness: 2px; }
+
+      /* The exhibit is one static drafting sheet: no hover states, no pointer affordances.
+         From 1024px it hangs 24px into the page gutter so its content lines up with the hero text. */
+      .sheet { background: #fbfaf7; color: #1f1e1c; }
+      @media (min-width: 640px) { .sheet { border-radius: 2px; } }
+      #example { scroll-margin-top: 12px; }
+
+      /* Drawing balloon, repeated in HTML so change #07 can be found on the sheet */
+      .balloon { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1.5px solid #8f5230; border-radius: 50%; color: #8f5230; font: 500 13px/1 "IBM Plex Mono", ui-monospace, monospace; }
+
+      /* Signature interaction: following "View bracket example" (a plain #example anchor) marks change #07 once.
+         Text and numbers never move or fade; only a background wash and a 3px copper edge appear, then clear. */
+      .change-07 { border-radius: 2px; }
+      @keyframes dp-mark-07 {
+        0%, 30% { background-color: #f2e5da; box-shadow: inset 3px 0 0 #8f5230; }
+        100% { background-color: rgba(242, 229, 218, 0); box-shadow: inset 3px 0 0 rgba(143, 82, 48, 0); }
+      }
+      #example:target .change-07 { animation: dp-mark-07 2s ease-out 0.3s both; }
+      @media (prefers-reduced-motion: reduce) {
+        :root { scroll-behavior: auto; }
+        #example:target .change-07 { animation: none; background-color: #f2e5da; box-shadow: inset 3px 0 0 #8f5230; }
+      }
+
+      .spec { border-collapse: collapse; font-size: 15px; }
+      .spec thead th { font: 500 13px/1.4 "IBM Plex Sans", sans-serif; color: #5c5851; padding: 0 12px 6px 0; border-bottom: 1px solid #ddd8cf; }
+      .spec tbody th, .spec td { padding: 8px 12px 8px 0; border-bottom: 1px solid #ebe7df; font-weight: 400; white-space: nowrap; }
+      .spec th:last-child, .spec td:last-child { padding-right: 0; }
+      .spec tr.is-new th, .spec tr.is-new td { color: #1f1e1c; font-weight: 500; border-bottom: 0; }
+
+      .check { border-top: 1px solid #ddd8cf; font-size: 15px; }
+      .check > div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid #ebe7df; }
+      .check dt { color: #5c5851; font-size: 13px; padding-top: 1px; }
+
+      .dw-label, .dw-label-strong, .dw-dim, .dw-dim-strong { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+      .dw-label { font-size: 10px; }
+      .dw-label-strong { font-size: 12px; font-weight: 500; }
+      .dw-dim { font-size: 11px; }
+      .dw-dim-strong { font-size: 13px; font-weight: 500; }
+
+      ins { text-decoration: none; }
+      del { text-decoration-thickness: 1px; }
+    </style>
   </head>
-  <body class="bg-stone-950 text-stone-100 font-sans">
+  <body class="font-sans antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
