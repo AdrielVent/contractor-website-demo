@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
 import { siteConfig } from './siteConfig';
 
-// No TypeScript-only syntax in this file: the production build sends it through in-browser Babel,
-// which only gets the few replacements in scripts/build.mjs.
+// Rendered to static HTML at build time (scripts/build.mjs). Nothing here runs in the browser,
+// so no state, effects or event handlers.
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -109,12 +108,6 @@ function BracketDrawing() {
 }
 
 function App() {
-  useEffect(() => {
-    document.title = siteConfig.seoTitle;
-    const metaDescription = document.querySelector('meta[name="description"]');
-    metaDescription?.setAttribute('content', siteConfig.seoDescription);
-  }, []);
-
   return (
     <div id="top" className="min-h-screen bg-paper text-ink">
       <a href="#main" className="skip-link">Skip to content</a>
@@ -270,14 +263,21 @@ function App() {
             <div className="max-w-2xl text-[15px] leading-relaxed text-muted lg:col-span-7 lg:col-start-5">
               <p>
                 I'm {siteConfig.founderName}, a mechanical engineering student at Hofstra University. {siteConfig.companyName}{' '}
-                is my company, and DatumPane is its first product concept. I'm talking with machine shops before building more,
-                so the tool fits how drawing changes are actually handled.
+                is my company. DatumPane is the newest thing it's working on, and it's still a concept. I'm talking with machine
+                shops before I build more, so the tool fits how drawing changes are actually handled.
               </p>
-              <p className="mt-5">
-                <a href={siteConfig.portfolioUrl} className="text-link" target="_blank" rel="noopener noreferrer">
-                  Engineering portfolio<span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </p>
+              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                <li>
+                  <a href={siteConfig.hubUrl} className="text-link">
+                    Everything Vnua Industries builds
+                  </a>
+                </li>
+                <li>
+                  <a href={siteConfig.portfolioUrl} className="text-link">
+                    Engineering portfolio
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
