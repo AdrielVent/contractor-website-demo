@@ -1,11 +1,18 @@
+import type React from 'react';
 import { siteConfig } from './siteConfig';
 
 // Rendered to static HTML at build time (scripts/build.mjs). Nothing here runs in the browser,
 // so no state, effects or event handlers.
 
-const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+// One page per tab. scripts/build.mjs renders each route to its own HTML file
+// (index.html, example.html, ...), and Vercel serves them at clean URLs (/example).
+export type Route = 'home' | 'example' | 'about' | 'contact' | 'not-found';
+
+const tabs: { route: Route; label: string; href: string }[] = [
+  { route: 'home', label: 'Overview', href: '/' },
+  { route: 'example', label: 'Example', href: '/example' },
+  { route: 'about', label: 'About', href: '/about' },
+  { route: 'contact', label: 'Contact', href: '/contact' },
 ];
 
 const contactHref = `mailto:${siteConfig.email}?subject=${encodeURIComponent(siteConfig.contactSubject)}&body=${encodeURIComponent(siteConfig.contactBody)}`;
@@ -107,211 +114,311 @@ function BracketDrawing() {
   );
 }
 
-function App() {
+function Header({ route }: { route: Route }) {
   return (
-    <div id="top" className="min-h-screen bg-paper text-ink">
-      <a href="#main" className="skip-link">Skip to content</a>
+    <header className="on-dark border-b border-graphite-line bg-graphite text-chalk">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 px-4 sm:px-6 lg:px-8">
+        <a href="/" className="brand-link">
+          <span className="text-chalk">{siteConfig.productName}</span>
+          <span className="text-fog">{' '}by {siteConfig.companyName}</span>
+        </a>
+        <nav aria-label="Site" className="tabs">
+          <ul>
+            {tabs.map((tab) => (
+              <li key={tab.href}>
+                <a href={tab.href} aria-current={tab.route === route ? 'page' : undefined}>{tab.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+}
 
-      <header className="on-dark border-b border-graphite-line bg-graphite text-chalk">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
-          <a href="#top" className="text-[15px] font-semibold tracking-tight text-chalk no-underline">
-            {siteConfig.companyName}
-          </a>
-          <nav aria-label="Primary">
-            <ul className="flex items-center gap-6 text-[15px] sm:gap-8">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className="nav-link">{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+function Footer() {
+  return (
+    <footer className="on-dark bg-graphite text-fog">
+      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-[14px] sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>© 2026 {siteConfig.companyName}. {siteConfig.productName} is a concept in development.</p>
+        <p>
+          <a href={siteConfig.hubUrl} className="footer-link">Everything Vnua Industries makes</a>
+        </p>
+      </div>
+    </footer>
+  );
+}
+
+// Dark band under the header with the page title. The home page uses the larger hero instead.
+function PageHead({ kicker, title, children }: { kicker: string; title: string; children?: React.ReactNode }) {
+  return (
+    <div className="on-dark bg-graphite text-chalk">
+      <div className="mx-auto max-w-6xl px-4 pb-10 pt-10 sm:px-6 lg:px-8 lg:pb-12 lg:pt-14">
+        <p className="mono text-[13px] text-fog">{kicker}</p>
+        <h1 className="mt-3 text-[2.125rem] font-bold leading-[1.08] tracking-tight sm:text-[2.75rem]">{title}</h1>
+        {children ? <div className="mt-4 max-w-2xl text-lg leading-snug text-fog">{children}</div> : null}
+      </div>
+    </div>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <section aria-labelledby="hero-title" className="on-dark bg-graphite text-chalk">
+        <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+          <div className="grid-12 pb-4 pt-10 lg:pt-14">
+            <p className="mono text-[13px] text-fog lg:col-span-12">
+              <span className="text-chalk">{siteConfig.productName}</span>
+              <span aria-hidden="true" className="px-2">/</span>
+              {siteConfig.productStatus}
+            </p>
+            <h1 id="hero-title" className="mt-4 text-[2.375rem] font-bold leading-[1.04] tracking-tight sm:text-5xl lg:col-span-10 lg:text-[3.5rem]">
+              See what changed.
+              <br />
+              Know what to inspect.
+            </h1>
+            <p className="mt-6 max-w-xl text-xl leading-snug text-fog lg:col-span-8 lg:max-w-none">
+              DatumPane is being built to help machine-shop quality teams compare drawing revisions and draft inspection
+              checks from the changes.
+            </p>
+            <p className="mt-8 flex flex-wrap gap-3 lg:col-span-12">
+              <a href="/example#example" className="btn btn-primary">View bracket example</a>
+              <a href="/contact" className="btn btn-ghost">Tell me how your shop does it</a>
+            </p>
+          </div>
         </div>
-      </header>
+      </section>
 
-      <main id="main">
-        <section aria-labelledby="hero-title" className="on-dark bg-graphite text-chalk">
-          <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
-            {/* Hero copy: one column of text on the 12-column grid the exhibit also uses */}
-            <div className="grid-12 pb-10 pt-10 lg:pb-7 lg:pt-8">
-              <p className="mono text-[13px] text-fog lg:col-span-12">
-                <span className="text-chalk">{siteConfig.productName}</span>
-                <span aria-hidden="true" className="px-2">/</span>
-                {siteConfig.productStatus}
-              </p>
-              <h1 id="hero-title" className="mt-4 text-[2.375rem] font-semibold leading-[1.04] tracking-tight sm:text-5xl lg:col-span-10 lg:text-[3.25rem]">
-                See what changed.
-                <br />
-                Know what to inspect.
-              </h1>
-              <p className="mt-6 max-w-xl text-xl leading-snug text-fog lg:col-span-8 lg:mt-5 lg:max-w-none">
-                DatumPane is being built to help machine-shop quality teams compare drawing revisions and draft inspection
-                checks from the changes.
-              </p>
-              <p className="mt-7 lg:col-span-4 lg:col-start-9 lg:mt-5 lg:self-end">
-                <a href="#example" className="btn btn-primary">View bracket example</a>
-              </p>
+      <section aria-labelledby="how-title" className="border-b border-rule">
+        <div className="grid-12 mx-auto max-w-6xl gap-y-6 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="lg:col-span-4">
+            <h2 id="how-title" className="text-2xl font-bold tracking-tight">How it's meant to work</h2>
+            <p className="mt-2 text-[15px] text-muted">None of this is built yet. This is the plan I'm checking with shops.</p>
+          </div>
+          <ol className="steps lg:col-span-8">
+            <li>
+              <span className="mono step-no">1</span>
+              <div>
+                <h3>Give it two revisions of a drawing</h3>
+                <p>The one you've been making parts from, and the new one the customer just sent.</p>
+              </div>
+            </li>
+            <li>
+              <span className="mono step-no">2</span>
+              <div>
+                <h3>See every change, by balloon number</h3>
+                <p>Each change is tied to its spot on the drawing, with the old and new values side by side.</p>
+              </div>
+            </li>
+            <li>
+              <span className="mono step-no">3</span>
+              <div>
+                <h3>Get the inspection checks that follow</h3>
+                <p>A tighter tolerance becomes a check with its new limits, ready for someone to measure and record.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Example() {
+  return (
+    <>
+      <PageHead kicker="Example / DP-EX-01" title="One change, start to finish">
+        <p>A made-up bracket goes from revision A to B. One tolerance tightens. Here's what DatumPane would show.</p>
+      </PageHead>
+      <section aria-label="Bracket example" className="on-dark bg-graphite text-chalk">
+        <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          <figure id="example" aria-labelledby="example-caption" className="sheet grid-12 -mx-4 px-4 pb-6 pt-5 sm:-mx-6 sm:px-6 lg:pb-8">
+            <figcaption id="example-caption" className="text-[13px] leading-relaxed text-muted sm:max-w-xl lg:col-span-8 lg:max-w-none">
+              <span className="mono text-ink">Fig. 1</span>
+              <span className="ml-4">DP-EX-01 bracket, front view, Rev B</span>
+              <span className="block">
+                <span className="font-bold text-ink">Illustrative example.</span> A fictional part drawn for this page,
+                not a customer or employer drawing and not working software.
+              </span>
+            </figcaption>
+            <p className="mono hidden text-[13px] text-muted lg:col-span-4 lg:block">Rev A → Rev B</p>
+
+            <div className="mt-4 border-t border-rule pt-4 sm:max-w-xl lg:col-span-8 lg:max-w-none lg:pt-5">
+              <BracketDrawing />
             </div>
 
-            {/* Exhibit: same 12 columns. Caption and drawing in 1–8, the change and its check in 9–12.
-                The caption sits above the drawing so the disclosure is read before the figure. */}
-            <figure id="example" aria-labelledby="example-caption" className="sheet grid-12 -mx-4 px-4 pb-6 pt-5 sm:-mx-6 sm:px-6 lg:pb-8">
-              <figcaption id="example-caption" className="text-[13px] leading-relaxed text-muted sm:max-w-xl lg:col-span-8 lg:max-w-none">
-                <span className="mono text-ink">Fig. 1</span>
-                <span className="ml-4">DP-EX-01 bracket, front view, Rev B</span>
-                <span className="block">
-                  <span className="font-medium text-ink">Illustrative example.</span> A fictional part drawn for this page,
-                  not a customer or employer drawing and not working software.
-                </span>
-              </figcaption>
-              <p className="mono hidden text-[13px] text-muted lg:col-span-4 lg:block">Rev A → Rev B</p>
-
-              <div className="mt-4 border-t border-rule pt-4 sm:max-w-xl lg:col-span-8 lg:max-w-none lg:pt-5">
-                <BracketDrawing />
-              </div>
-
-              <div className="mt-6 border-t border-rule lg:col-span-4 lg:mt-4 lg:pt-2">
-                {/* The change, matched to balloon 07 on the drawing */}
-                <section aria-labelledby="change-title" className="change-07 -mx-3 px-3 pb-5 pt-4">
-                  <h2 id="change-title" className="flex items-center gap-3">
-                    <span className="balloon" aria-hidden="true">{change.balloon}</span>
-                    <span>
-                      <span className="block text-[15px] font-semibold">{change.characteristic}</span>
-                      <span className="mono block text-[13px] font-normal text-muted">Change #{change.balloon} · zone {change.zone}</span>
-                    </span>
-                  </h2>
-                  <table className="spec mt-4 w-full text-left">
-                    <caption className="sr-only">Center-to-center hole spacing, revision A and revision B</caption>
-                    <thead>
-                      <tr>
-                        <th scope="col">Rev</th>
-                        <th scope="col">Dimension</th>
-                        <th scope="col">Limits</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="text-muted">
-                        <th scope="row" className="mono">A</th>
-                        <td className="mono"><del>{change.revA.tol}</del></td>
-                        <td className="mono">{change.revA.limits}</td>
-                      </tr>
-                      <tr className="is-new">
-                        <th scope="row" className="mono">B</th>
-                        <td className="mono">{change.revB.tol}</td>
-                        <td className="mono">{change.revB.limits}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <p className="mt-3 text-[13px] leading-relaxed text-muted">
-                    Nominal unchanged. The tolerance band narrows from 0.20 mm to 0.10 mm.
-                  </p>
-                </section>
-
-                {/* What the inspector does about it */}
-                <section aria-labelledby="action-title" className="border-t border-rule pt-4">
-                  <h2 id="action-title" className="mono text-[13px] font-normal text-muted">Inspection action</h2>
-                  <p className="mt-2 text-[15px] leading-relaxed">
-                    Measure and record the center-to-center spacing. Rev B limits for this check:{' '}
-                    <span className="mono whitespace-nowrap font-medium">{change.revB.limits}</span>.
-                  </p>
-                  <dl className="check mt-4">
-                    <div>
-                      <dt>Check</dt>
-                      <dd><span className="mono">#{change.balloon}</span> hole spacing</dd>
-                    </div>
-                    <div>
-                      <dt>Measured</dt>
-                      <dd className="text-muted">Not yet recorded</dd>
-                    </div>
-                    <div>
-                      <dt>Status</dt>
-                      <dd className="text-muted">Open</dd>
-                    </div>
-                  </dl>
-                </section>
-              </div>
-
-              {/* Sources: verified public pages from the founder's research reference list. No projections or private data.
-                  Sits under the drawing (columns 1–8) on desktop; last on mobile. */}
-              <section aria-labelledby="notes-title" className="mt-6 border-t border-rule pt-4 sm:max-w-xl lg:col-span-8 lg:mt-2 lg:max-w-none">
-                  <h2 id="notes-title" className="mono text-[13px] font-normal text-muted">Notes</h2>
-                  <ol className="notes mt-2 text-[13px] leading-relaxed text-muted lg:grid lg:grid-cols-2 lg:gap-x-8">
-                    <li>
-                      Balloon numbers such as #07 tie a drawing characteristic to its inspection record, as in AS9102
-                      first-article reports.{' '}
-                      <a href="https://lastrev.com/workflows/fai-report-generation" className="text-link" target="_blank" rel="noopener noreferrer">
-                        Last Rev, “FAI Report Generation (AS9102)”<span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </li>
-                    <li>
-                      Dimensions and tolerances follow ASME Y14.5, the U.S. standard for dimensioning and tolerancing on
-                      engineering drawings.{' '}
-                      <a href="https://www.asme.org/codes-standards/find-codes-standards/y14-5-dimensioning-tolerancing" className="text-link" target="_blank" rel="noopener noreferrer">
-                        ASME Y14.5-2018 (R2024)<span className="sr-only"> (opens in a new tab)</span>
-                      </a>
-                    </li>
-                  </ol>
+            <div className="mt-6 border-t border-rule lg:col-span-4 lg:mt-4 lg:pt-2">
+              {/* The change, matched to balloon 07 on the drawing */}
+              <section aria-labelledby="change-title" className="change-07 -mx-3 px-3 pb-5 pt-4">
+                <h2 id="change-title" className="flex items-center gap-3">
+                  <span className="balloon" aria-hidden="true">{change.balloon}</span>
+                  <span>
+                    <span className="block text-[15px] font-bold">{change.characteristic}</span>
+                    <span className="mono block text-[13px] font-normal text-muted">Change #{change.balloon} · zone {change.zone}</span>
+                  </span>
+                </h2>
+                <table className="spec mt-4 w-full text-left">
+                  <caption className="sr-only">Center-to-center hole spacing, revision A and revision B</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Rev</th>
+                      <th scope="col">Dimension</th>
+                      <th scope="col">Limits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="text-muted">
+                      <th scope="row" className="mono">A</th>
+                      <td className="mono"><del>{change.revA.tol}</del></td>
+                      <td className="mono">{change.revA.limits}</td>
+                    </tr>
+                    <tr className="is-new">
+                      <th scope="row" className="mono">B</th>
+                      <td className="mono">{change.revB.tol}</td>
+                      <td className="mono">{change.revB.limits}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="mt-3 text-[13px] leading-relaxed text-muted">
+                  Nominal unchanged. The tolerance band narrows from 0.20 mm to 0.10 mm.
+                </p>
               </section>
-            </figure>
-          </div>
-        </section>
 
-        {/* Founder note */}
-        <section id="about" aria-labelledby="about-title" className="section-anchor border-b border-rule">
-          <div className="grid-12 mx-auto max-w-6xl gap-y-4 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-            <h2 id="about-title" className="text-xl font-semibold tracking-tight lg:col-span-4">About</h2>
-            <div className="max-w-2xl text-[15px] leading-relaxed text-muted lg:col-span-7 lg:col-start-5">
-              <p>
-                I'm {siteConfig.founderName}, a mechanical engineering student at Hofstra University. {siteConfig.companyName}{' '}
-                is my company. DatumPane is the newest thing it's working on, and it's still a concept. I'm talking with machine
-                shops before I build more, so the tool fits how drawing changes are actually handled.
-              </p>
-              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
-                <li>
-                  <a href={siteConfig.hubUrl} className="text-link">
-                    Everything Vnua Industries builds
-                  </a>
-                </li>
-                <li>
-                  <a href={siteConfig.portfolioUrl} className="text-link">
-                    Engineering portfolio
-                  </a>
-                </li>
-              </ul>
+              {/* What the inspector does about it */}
+              <section aria-labelledby="action-title" className="border-t border-rule pt-4">
+                <h2 id="action-title" className="mono text-[13px] font-normal text-muted">Inspection action</h2>
+                <p className="mt-2 text-[15px] leading-relaxed">
+                  Measure and record the center-to-center spacing. Rev B limits for this check:{' '}
+                  <span className="mono whitespace-nowrap font-bold">{change.revB.limits}</span>.
+                </p>
+                <dl className="check mt-4">
+                  <div>
+                    <dt>Check</dt>
+                    <dd><span className="mono">#{change.balloon}</span> hole spacing</dd>
+                  </div>
+                  <div>
+                    <dt>Measured</dt>
+                    <dd className="text-muted">Not yet recorded</dd>
+                  </div>
+                  <div>
+                    <dt>Status</dt>
+                    <dd className="text-muted">Open</dd>
+                  </div>
+                </dl>
+              </section>
             </div>
-          </div>
-        </section>
 
-        {/* Contact */}
-        <section id="contact" aria-labelledby="contact-title" className="section-anchor">
-          <div className="grid-12 mx-auto max-w-6xl gap-y-4 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-            <h2 id="contact-title" className="text-xl font-semibold tracking-tight lg:col-span-4">Contact</h2>
-            <div className="max-w-2xl lg:col-span-7 lg:col-start-5">
-              <p className="text-xl font-medium leading-snug tracking-tight text-ink">
-                How does your shop handle drawing changes today?
-              </p>
-              <p className="mt-3 text-[15px] leading-relaxed text-muted">
-                Who catches a tightened tolerance before parts run, and where does it get written down? A few lines is plenty.
-              </p>
-              <p className="mt-6">
-                <a href={contactHref} className="btn btn-dark">
-                  Talk about your workflow<span className="sr-only"> (opens an email draft)</span>
-                </a>
-              </p>
-              <p className="mt-3 text-[13px] text-muted">
-                Opens an email draft to {siteConfig.email}. Please don't send drawings.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="on-dark bg-graphite text-fog">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-[13px] sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-          <p>© 2026 {siteConfig.companyName}</p>
-          <p>{siteConfig.productName} is in development.</p>
+            {/* Sources: verified public pages from the founder's research reference list. No projections or private data.
+                Sits under the drawing (columns 1–8) on desktop; last on mobile. */}
+            <section aria-labelledby="notes-title" className="mt-6 border-t border-rule pt-4 sm:max-w-xl lg:col-span-8 lg:mt-2 lg:max-w-none">
+                <h2 id="notes-title" className="mono text-[13px] font-normal text-muted">Notes</h2>
+                <ol className="notes mt-2 text-[13px] leading-relaxed text-muted lg:grid lg:grid-cols-2 lg:gap-x-8">
+                  <li>
+                    Balloon numbers such as #07 tie a drawing characteristic to its inspection record, as in AS9102
+                    first-article reports.{' '}
+                    <a href="https://lastrev.com/workflows/fai-report-generation" className="text-link" target="_blank" rel="noopener noreferrer">
+                      Last Rev, “FAI Report Generation (AS9102)”<span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </li>
+                  <li>
+                    Dimensions and tolerances follow ASME Y14.5, the U.S. standard for dimensioning and tolerancing on
+                    engineering drawings.{' '}
+                    <a href="https://www.asme.org/codes-standards/find-codes-standards/y14-5-dimensioning-tolerancing" className="text-link" target="_blank" rel="noopener noreferrer">
+                      ASME Y14.5-2018 (R2024)<span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </li>
+                </ol>
+            </section>
+          </figure>
         </div>
-      </footer>
+      </section>
+    </>
+  );
+}
+
+function About() {
+  return (
+    <>
+      <PageHead kicker="About" title="Who's building this" />
+      <section aria-label="About Adriel" className="border-b border-rule">
+        <div className="grid-12 mx-auto max-w-6xl gap-y-8 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <figure className="lg:col-span-3">
+            <img src="/adriel-headshot.jpg" width={1365} height={2048} alt="Adriel Ventura, smiling, arms crossed, in a blue polo" className="portrait" />
+          </figure>
+          <div className="prose-dp lg:col-span-7 lg:col-start-5">
+            <p>
+              I'm {siteConfig.founderName}, a mechanical engineering student at Hofstra University. {siteConfig.companyName}{' '}
+              is my company. DatumPane is the newest thing it's working on, and it's still a concept.
+            </p>
+            <p>
+              I'm talking with machine shops before I build more, so the tool fits how drawing changes are actually handled,
+              not how I guess they're handled.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+              <li><a href={siteConfig.hubUrl} className="text-link">Everything Vnua Industries makes</a></li>
+              <li><a href={siteConfig.portfolioUrl} className="text-link">Engineering portfolio</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Contact() {
+  return (
+    <>
+      <PageHead kicker="Contact" title="How does your shop handle drawing changes today?" />
+      <section aria-label="Email Adriel">
+        <div className="grid-12 mx-auto max-w-6xl gap-y-4 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="max-w-2xl lg:col-span-8">
+            <p className="text-xl leading-snug text-ink">
+              Who catches a tightened tolerance before parts run, and where does it get written down? A few lines is plenty.
+            </p>
+            <p className="mt-6">
+              <a href={contactHref} className="btn btn-dark">
+                Talk about your workflow<span className="sr-only"> (opens an email draft)</span>
+              </a>
+            </p>
+            <p className="mt-3 text-[14px] text-muted">
+              Opens an email draft to {siteConfig.email}. Please don't send drawings.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function NotFound() {
+  return (
+    <PageHead kicker="404" title="That page doesn't exist.">
+      <p>
+        Try the <a href="/" className="dark-link">overview</a> or the <a href="/example" className="dark-link">bracket example</a>.
+      </p>
+    </PageHead>
+  );
+}
+
+const pages: Record<Route, () => React.ReactElement> = {
+  home: Home,
+  example: Example,
+  about: About,
+  contact: Contact,
+  'not-found': NotFound,
+};
+
+function App({ route }: { route: Route }) {
+  const Page = pages[route];
+  return (
+    <div className="flex min-h-screen flex-col bg-paper text-ink">
+      <a href="#main" className="skip-link">Skip to content</a>
+      <Header route={route} />
+      <main id="main" className="flex-1">
+        <Page />
+      </main>
+      <Footer />
     </div>
   );
 }

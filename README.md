@@ -10,9 +10,12 @@ Other Vnua Industries work is listed on the hub: https://adrielvent.github.io/vn
 
 ## How it's built
 
-- React components in `src/` are rendered to static HTML at build time (`scripts/build.mjs`).
+- Four tabs, each its own page: Overview (`/`), Example (`/example`), About (`/about`), Contact (`/contact`), plus a 404.
+- React components in `src/` are rendered to one static HTML file per page at build time (`scripts/build.mjs`).
+  Page titles and descriptions live in `src/entry-server.tsx`. Vercel serves `example.html` at `/example` (`cleanUrls`).
+- Type is Tinos (the free Times New Roman) with Cousine for labels, served from `public/fonts/` under the SIL Open Font License.
 - Tailwind CSS 3.4 is compiled by Vite into one stylesheet.
-- No JavaScript ships to the browser. The page works with scripts off.
+- No JavaScript ships to the browser. Every page works with scripts off.
 
 ```bash
 npm ci

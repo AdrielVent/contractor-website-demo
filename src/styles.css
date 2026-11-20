@@ -32,14 +32,45 @@ a:focus-visible, button:focus-visible { outline: 2px solid #1f1e1c; outline-offs
 .skip-link { position: absolute; left: 16px; top: -48px; z-index: 50; background: #f3f1ec; color: #1f1e1c; padding: 8px 12px; font-size: 14px; }
 .skip-link:focus { top: 12px; }
 
-.nav-link { color: #b9b4ab; text-decoration: none; padding: 4px 0; }
-.nav-link:hover { color: #f3f1ec; }
+/* Header: product name, then the tabs. On phones the tabs get their own full-width row.
+   The current page's tab is chalk with a 2px underline sitting on the header's bottom edge. */
+.brand-link { display: inline-flex; align-items: center; min-height: 56px; font-size: 17px; font-weight: 700; text-decoration: none; }
+.tabs { width: calc(100% + 32px); margin: 0 -16px; padding: 0 16px; border-top: 1px solid #34383c; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs ul { display: flex; gap: 22px; }
+.tabs a { position: relative; display: block; padding: 12px 0 13px; font-size: 16px; color: #b9b4ab; text-decoration: none; white-space: nowrap; }
+.tabs a:hover { color: #f3f1ec; }
+.tabs a[aria-current="page"] { color: #f3f1ec; }
+.tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #f3f1ec; }
+@media (min-width: 640px) {
+  .brand-link { min-height: 64px; }
+  .tabs { width: auto; margin: 0; padding: 0; border-top: 0; overflow: visible; }
+  .tabs ul { gap: 28px; }
+  .tabs a { padding: 21px 0 20px; }
+}
+.footer-link { color: #b9b4ab; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.footer-link:hover { color: #f3f1ec; }
+.dark-link { color: #f3f1ec; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
 .btn { display: inline-flex; align-items: center; font-size: 15px; font-weight: 500; padding: 10px 18px; border-radius: 2px; text-decoration: none; border: 1px solid transparent; transition: background-color .15s, border-color .15s, color .15s; }
 .btn-primary { background: #f3f1ec; color: #1d1f21; }
 .btn-primary:hover { background: #ffffff; }
 .btn-dark { background: #1d1f21; color: #f3f1ec; }
 .btn-dark:hover { background: #34383c; }
+.btn-ghost { color: #f3f1ec; border-color: #6b6862; }
+.btn-ghost:hover { border-color: #f3f1ec; }
+
+/* Overview: the three planned steps */
+.steps { border-top: 1px solid #1f1e1c; }
+.steps li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid #ddd8cf; }
+.steps .step-no { font-size: 14px; color: #5c5851; padding-top: 3px; }
+.steps h3 { font-size: 18px; font-weight: 700; line-height: 1.35; }
+.steps p { margin-top: 4px; font-size: 16px; line-height: 1.55; color: #5c5851; }
+
+/* About */
+.portrait { display: block; width: 100%; max-width: 240px; height: auto; border-radius: 2px; }
+.prose-dp { max-width: 38em; font-size: 17px; line-height: 1.6; color: #5c5851; }
+.prose-dp p + p { margin-top: 16px; }
 
 .text-link { color: #1f1e1c; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .text-link:hover { text-decoration-thickness: 2px; }
