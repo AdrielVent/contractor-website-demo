@@ -18,7 +18,7 @@ button, input, textarea, select { font: inherit; }
 /* Page styles. They sit before the utilities so a utility class still wins a tie,
    as it did when the Tailwind CDN injected its styles after these. */
 body { background: #f6f3ee; }
-.mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+.mono { font-family: Cousine, "Courier New", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 
 /* One editorial grid for hero, exhibit, About and Contact: 12 columns, 32px gutters from 1024px */
 .grid-12 { display: grid; grid-template-columns: minmax(0, 1fr); }
@@ -51,7 +51,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #1f1e1c; outline-offs
 #example { scroll-margin-top: 12px; }
 
 /* Drawing balloon, repeated in HTML so change #07 can be found on the sheet */
-.balloon { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1.5px solid #8f5230; border-radius: 50%; color: #8f5230; font: 500 13px/1 "IBM Plex Mono", ui-monospace, monospace; }
+.balloon { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1.5px solid #8f5230; border-radius: 50%; color: #8f5230; font: 500 13px/1 Cousine, "Courier New", ui-monospace, monospace; }
 
 /* Signature interaction: following "View bracket example" (a plain #example anchor) marks change #07 once.
    Text and numbers never move or fade; only a background wash and a 3px copper edge appear, then clear. */
@@ -67,7 +67,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #1f1e1c; outline-offs
 }
 
 .spec { border-collapse: collapse; font-size: 15px; }
-.spec thead th { font: 500 13px/1.4 "IBM Plex Sans", sans-serif; color: #5c5851; padding: 0 12px 6px 0; border-bottom: 1px solid #ddd8cf; }
+.spec thead th { font: 500 13px/1.4 Tinos, "Times New Roman", serif; color: #5c5851; padding: 0 12px 6px 0; border-bottom: 1px solid #ddd8cf; }
 .spec tbody th, .spec td { padding: 8px 12px 8px 0; border-bottom: 1px solid #ebe7df; font-weight: 400; white-space: nowrap; }
 .spec th:last-child, .spec td:last-child { padding-right: 0; }
 .spec tr.is-new th, .spec tr.is-new td { color: #1f1e1c; font-weight: 500; border-bottom: 0; }
@@ -81,7 +81,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #1f1e1c; outline-offs
 @media (min-width: 1024px) { .notes li + li { margin-top: 0; } }
 .notes .text-link { color: #5c5851; }
 
-.dw-label, .dw-label-strong, .dw-dim, .dw-dim-strong { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.dw-label, .dw-label-strong, .dw-dim, .dw-dim-strong { font-family: Cousine, "Courier New", ui-monospace, monospace; }
 .dw-label { font-size: 10px; }
 .dw-label-strong { font-size: 12px; font-weight: 500; }
 .dw-dim { font-size: 11px; }

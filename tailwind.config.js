@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        sans: ['Tinos', '"Times New Roman"', 'Times', 'serif'],
+        mono: ['Cousine', '"Courier New"', 'ui-monospace', 'monospace'],
       },
       colors: {
         graphite: { DEFAULT: '#1d1f21', line: '#383c40' },
